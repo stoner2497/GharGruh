@@ -9,7 +9,7 @@ const crypto = require('crypto')
 
 const Token = require('../models/Token')
 const User = require("../models/User");
-const Keys = require("../config/keys");
+const Keys = require("../config/Keys");
 
 router.get('/Landing', (req,res) => {
     
