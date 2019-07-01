@@ -10,7 +10,7 @@ mongoose.Promise = global.Promise;
 //connect to mongoose
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = require("./config/Keys").mongoURI;
 
 // Connect to MongoDB
 mongoose
