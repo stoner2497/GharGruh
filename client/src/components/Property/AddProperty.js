@@ -75,11 +75,6 @@ import {addProperty} from '../../Actions/propertyAction'
         const {Name,mobileNumber,alternateNumber,Address,pincode,DaysToVisit,TimeToVisit,negotiable,PriceOfProperty,rooms,masterbedroom,parking,area,image} = this.state
         const formData = new FormData();
         formData.append('file', this.state.file)
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        };
         const newProperty = {
             Name,
             mobileNumber,
@@ -96,7 +91,7 @@ import {addProperty} from '../../Actions/propertyAction'
             image
         }
         
-        this.props.addProperty(newProperty,config)
+        this.props.addProperty(newProperty)
         console.log(newProperty)
     }
     onRender = () => {

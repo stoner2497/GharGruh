@@ -3,9 +3,9 @@ import axios from 'axios';
 import {ADD_PROPERTY,GET_PROPERTY,GET_PROPERTY_VIRAR,GET_PROPERTY_VASAI,GET_PROPERTY_NALLASOPARA, GET_ERRORS } from './types';
 
 
-export const addProperty = (userdata,config) => dispatch => {
+export const addProperty = (userdata) => dispatch => {
     
-        axios.post('/addproperty',userdata,config) 
+        axios.post('/addproperty',userdata) 
             .then(res => {
                 dispatch({
                     type:ADD_PROPERTY,
