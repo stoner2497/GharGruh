@@ -19,5 +19,5 @@ router.post('/test', (req,res) => {
         console.log(error.message);
      });
 })
-
+//ec2-13-230-239-75.ap-northeast-1.compute.amazonaws.com
 module.exports = router

@@ -19,7 +19,6 @@ import {connect} from 'react-redux'
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/');
-      console.log('did')
     }
   }
 

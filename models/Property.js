@@ -49,10 +49,22 @@ const PropertySchema = new Schema({
         type:String,
         requied:true
     },
-    file:{
+    rooms:{
         type:String,
         required:true
     },
+    masterbedroom:{
+        type:String,
+        required:true
+    },
+    image:{
+        type:String,
+        required:true
+    },
+    area:{
+        type:Number,
+        required:true
+    }
     // nearbyThings:{
     //     type:String,
     //     required:true

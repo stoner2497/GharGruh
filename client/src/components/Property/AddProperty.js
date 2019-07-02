@@ -60,11 +60,11 @@ import {addProperty} from '../../Actions/propertyAction'
     }
     onHandleChange(event) {
         const target = event.target;
-        const value = target.type === 'file' ? URL.createObjectURL(target.files[0]) : target.value;
+        const value = target.type === 'file' ? target.files : target.value;
         const name = target.name;
-    
+
         this.setState({
-          [name]: value || URL.createObjectURL(target.files[0])
+          [name]: value 
             
         });
       }
@@ -73,13 +73,12 @@ import {addProperty} from '../../Actions/propertyAction'
         e.preventDefault();
         const {name} = this.props.auth
         const {Name,mobileNumber,alternateNumber,Address,pincode,DaysToVisit,TimeToVisit,negotiable,PriceOfProperty,rooms,masterbedroom,parking,area,image} = this.state
-        const formData = new FormData();
-        formData.append('file', this.state.file)
         const newProperty = {
             Name,
             mobileNumber,
             alternateNumber,
-            Address,pincode,
+            Address,
+            pincode,
             DaysToVisit,
             TimeToVisit,
             negotiable,
@@ -96,8 +95,7 @@ import {addProperty} from '../../Actions/propertyAction'
     }
     onRender = () => {
         const {step } = this.state;
-        const {Name,mobileNumber,alternateNumber,Address,pincode,DaysToVisit,TimeToVisit,negotiable,PriceOfProperty,nearbyThings,rooms,masterbedroom,parking,area} = this.state
-        const image = this.props.image
+        const {Name,mobileNumber,alternateNumber,Address,pincode,DaysToVisit,TimeToVisit,negotiable,PriceOfProperty,nearbyThings,rooms,masterbedroom,parking,area,image} = this.state
         const values = {
             Name,mobileNumber,alternateNumber,Address,pincode,DaysToVisit,TimeToVisit,negotiable,PriceOfProperty,nearbyThings,image,rooms,masterbedroom,parking,area
         }
@@ -133,7 +131,7 @@ import {addProperty} from '../../Actions/propertyAction'
                             <ListGroupItem>Alternate Number:{values.alternateNumber}</ListGroupItem>
                             <ListGroupItem>Address:{values.Address}</ListGroupItem>
                             <ListGroupItem>Pincode:{values.pincode}</ListGroupItem>
-                            <ListGroupItem>Image:{values.image}</ListGroupItem>
+                            <ListGroupItem>Image:{values.image}<br /><img src={values.image} className="img-thumbnail" style={{height:'150px',width:'150px'}} alt="uploadFile Shown Here" /></ListGroupItem>
                             <ListGroupItem>DaysToVisit:{values.DaysToVisit}</ListGroupItem>
                             <ListGroupItem>Negotialble{values.negotiable}</ListGroupItem>
                             <ListGroupItem>TimeToVisit{values.TimeToVisit}</ListGroupItem>
@@ -165,6 +163,9 @@ import {addProperty} from '../../Actions/propertyAction'
                                        
                                         <Input type="file"  onChange={this.onHandleChange} name="image"   />
                                     </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                <img src={values.image} className="img-thumbnail" style={{height:'150px',width:'150px'}} alt="uploadFile Shown Here" />
                                 </FormGroup>
                                <FormGroup>
                                    <InputGroup>

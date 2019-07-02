@@ -33,8 +33,8 @@ export default class PropertyDetail1 extends Component {
                             <FormGroup>
                             <CustomInput type="select" id="exampleCustomSelect" value={value.DaysToVisit} name="DaysToVisit" onChange={onHandleChange}>
                                 <option value="none">none</option>
-                                <option value="1Rk">Mon-Fri</option>
-                                <option value="1Bhk">Sat-Sun</option>
+                                <option value="Mon-Fri">Mon-Fri</option>
+                                <option value="Sat-Sun">Sat-Sun</option>
                             </CustomInput>
                             </FormGroup>
                             <h5>Time To Visit</h5>

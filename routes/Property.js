@@ -108,8 +108,8 @@ router.get('/myproperty', passport.authenticate('jwt',{session:false}),(req,res)
    })
 })
 
-router.post('/addproperty', passport.authenticate('jwt', {session:false}),multer.single('file'),async (req,res) => {
-  console.log(req.file)
+router.post('/addproperty', passport.authenticate('jwt', {session:false}),multer.single('image'),async (req,res) => {
+    console.log(req.file)
     let errors = []
     // let result = await cloudinary.v2.uploader.upload(req.file.name);
     if(Pincode.test(req.body.pincode) === false) {
@@ -138,14 +138,20 @@ router.post('/addproperty', passport.authenticate('jwt', {session:false}),multer
       TimeToVisit:req.body.TimeToVisit,
       negotiable:req.body.negotiable,
       PriceOfProperty:req.body.PriceOfProperty,
-      Parking:req.body.Parking,
-      file: req.file
+      parking:req.body.parking,
+      area:req.body.area,
+      masterbedroom:req.body.masterbedroom,
+      rooms:req.body.rooms,
+      image: req.file
 
     })
     newProperty.save() 
       .then(newprop => {
           res.json(newprop)
-      }).catch(err => res.json(err))
+      }).catch(err =>{
+        res.json(err)
+        console.log(err)
+      } )
 })
 
 router.put('/edit-property/:id', passport.authenticate('jwt', {session:false}) ,  (req,res) => {
