@@ -1,5 +1,4 @@
-if(process.env.NODE_ENV === "production") {
-    module.exports = require('./keys_prod')
-}else {
-    module.exports = require('./keys_dev')
-}
+module.exports =  {
+    mongoURI: 'mongodb+srv://shah:Universe@69@cluster0-orelz.mongodb.net/ghargruh?retryWrites=true&w=majority',
+    secretOrKey: 'Stonned'
+} 
